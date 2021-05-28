@@ -1,7 +1,16 @@
 extends layout
 
 block content
-  h1 TheraPlanner
-  p.lead The planner which will ease your organizing burdens 
-  hr
-  
+
+  section.jumbotron.pt-8
+    .container
+      h1 TheraPlanner
+      p.lead The planner which will ease your organizing burdens 
+      hr
+
+    .container.text-center
+      //- p isAuthenticated
+      if !isAuthenticated
+        a.btn.btn-primary.btn-lg.m-2(href='/login', role='button') Log In/Sign Up
+      else
+        a.btn.btn-primary.btn-lg.m-2(href='/dashboard', role='button') Go to Dashboard

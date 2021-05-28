@@ -7,13 +7,22 @@ const flash = require('express-flash');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const dotenv = require('dotenv');
+const { auth } = require('express-openid-connect');
+
+dotenv.config({ path: '.env' });
+// dotenv.load();
 
 const homeController = require('./controllers/home');
+const userController = require('./controllers/user');
+
+
+
 
 const app = express();
 
 app.set('host', process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0');
-app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080);
+app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(compression());
@@ -37,11 +46,24 @@ app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/bootstrap/d
 app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/jquery/dist'), { maxAge: 31557600000 }));
 app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), { maxAge: 31557600000 }));
 
+app.use(express.json());
 
+const config = {
+  authRequired: false,
+  auth0Logout: true
+};
+
+app.use(auth(config));
+
+// Middleware to make the `user` object available for all views
+app.use(function (req, res, next) {
+  res.locals.user = req.oidc.user;
+  next();
+});
 
 app.get('/', homeController.index);
-// app.get('/login', homeController.index);
-// app.get('/signup', homeController.index);
+app.get('/login', userController.getLogin);
+app.get('/signup', userController.getSignup);
 // app.get('/dashboard/{}', homeController.index);
 // app.get('/dashboard/meeting/{}{}', homeController.index);
 
