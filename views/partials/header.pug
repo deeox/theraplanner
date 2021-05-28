@@ -7,6 +7,8 @@
       span.sr-only Toggle navigation
       span.navbar-toggler-icon
     .collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right.ml-auto
-          li.nav-item(class=isAuthenticated ? 'active' : undefined)
+      ul.nav.navbar-nav.navbar-right.ms-auto
+          li.nav-item(class=locals.user_dash ? 'active' : 'd-none')
+            a.nav-link(href='/clientManager') Manage Clients
+          li.nav-item(class=isAuthenticated ? 'active' : 'd-none')
             a.nav-link(href='/logout') Logout

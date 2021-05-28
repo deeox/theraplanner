@@ -1,0 +1,10 @@
+mixin meetingItem(client_name, start_time, end_time, to_do_latest)
+    a.list-group-item.list-group-item-action.flex-column.align-items-start(href='#')
+        .d-flex.w-100
+            h5.mb-1= client_name
+        .mb-1  
+            p= start_time
+            p " - "
+            p= end_time
+        small= to_do_latest
+            

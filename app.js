@@ -9,11 +9,13 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const dotenv = require('dotenv');
 const { auth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
 
 dotenv.config({ path: '.env' });
 // dotenv.load();
 
 const homeController = require('./controllers/home');
+const userDashboardController = require('./controllers/user_dashboard');
 
 
 
@@ -61,7 +63,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', homeController.index);
-// app.get('/dashboard/{}', homeController.index);
+app.get('/dashboard', requiresAuth(), userDashboardController.getUserDashboard);
 // app.get('/dashboard/meeting/{}{}', homeController.index);
 
 
