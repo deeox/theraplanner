@@ -13,4 +13,5 @@ block content
       if !isAuthenticated
         a.btn.btn-primary.btn-lg.m-2(href='/login', role='button') Log In/Sign Up
       else
+        h4 Hi there! #{locals.user.given_name}
         a.btn.btn-primary.btn-lg.m-2(href='/dashboard', role='button') Go to Dashboard

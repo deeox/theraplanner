@@ -14,7 +14,6 @@ dotenv.config({ path: '.env' });
 // dotenv.load();
 
 const homeController = require('./controllers/home');
-const userController = require('./controllers/user');
 
 
 
@@ -62,8 +61,6 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', homeController.index);
-app.get('/login', userController.getLogin);
-app.get('/signup', userController.getSignup);
 // app.get('/dashboard/{}', homeController.index);
 // app.get('/dashboard/meeting/{}{}', homeController.index);
 
