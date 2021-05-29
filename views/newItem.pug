@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+    h3 Schedule New Meeting 
+    hr
+
+    form
+      // Name input
+      .form-outline.mb-4.h5
+        label.form-label(for='form4Example1') Name
+        input#form4Example1.form-control(type='text')
+        
+      // Start Time
+      .row.mb-4.h5
+        .col
+            .form-outline
+                label.form-label(for='form3Example1') Start time
+                input#form3Example1.form-control(type='text')
+        .col
+            .form-outline
+                label.form-label(for='form3Example2') End time
+                input#form3Example2.form-control(type='text')
+            
+      // Message input
+      .form-outline.mb-4.h5
+        label.form-label(for='form4Example3') Message
+        textarea#form4Example3.form-control(rows='4')
+        
+      // Submit button
+      button.btn.btn-primary.btn-block.mb-4(type='submit') Submit

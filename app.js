@@ -16,6 +16,7 @@ dotenv.config({ path: '.env' });
 
 const homeController = require('./controllers/home');
 const userDashboardController = require('./controllers/user_dashboard');
+const clientManagerController = require('./controllers/clientManager');
 
 
 
@@ -64,6 +65,9 @@ app.use(function (req, res, next) {
 
 app.get('/', homeController.index);
 app.get('/dashboard', requiresAuth(), userDashboardController.getUserDashboard);
+app.get('/clientManager', clientManagerController.getclientManager);
+app.get('/newItem', userDashboardController.getnewItem);
+app.get('/newClient', clientManagerController.getnewClient);
 // app.get('/dashboard/meeting/{}{}', homeController.index);
 
 
