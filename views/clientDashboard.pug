@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+    .container
+        .row
+            .col 
+                h2 Client Name: lname, fname 
+                h5 Client Ph No 
+                h5 Client Email
+            .col.text-end
+                a.btn.btn-primary.btn-lg.m-2(href='/addNote', role='button') Add Session Note
+
+        hr
+
+    include partials/timeline
+    
