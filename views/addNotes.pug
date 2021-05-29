@@ -1,9 +1,8 @@
-extends layout
+extends layout 
 
+block content 
 
-block content
-
-    h3 Schedule New Meeting 
+	h3 Add New Note
     hr
 
     form
@@ -20,25 +19,11 @@ block content
                 input#date.form-control(type="datetime-local"
                 name="meeting-time" value="2018-06-12T19:30"
                 min="2018-06-07T00:00" max="2018-06-14T00:00")
-        .col
-            .form-outline
-                label.form-label(for='duration') Duration
-                select#duration.form-control
-                    option(selected='' value='30') 30 mins
-                    option(value='45') 45 mins
-                    option(value='60') 60 mins
             
       // Message input
       .form-outline.mb-4.h5
         label.form-label(for='message') Message
         textarea#message.form-control(rows='4')
-
-      .form-outline.mb-4.h5
-            label.form-label(for='emaila') Email address  
-            input#emaila.form-control(type='Email')
         
       // Submit button
       button.btn.btn-primary.btn-block.mb-4(type='submit') Submit
-
-
-

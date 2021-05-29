@@ -1,12 +1,13 @@
 extends layout
 
 block content
-
+  
   section.jumbotron.pt-8
     .container
       h1 TheraPlanner
       p.lead The planner which will ease your organizing burdens 
       hr
+
 
     .container.text-center
       //- p isAuthenticated
@@ -15,3 +16,5 @@ block content
       else
         h4 Hi there! #{locals.user.given_name}
         a.btn.btn-primary.btn-lg.m-2(href='/dashboard', role='button') Go to Dashboard
+
+    img.img-fluid(src='/organise.svg' alt='e')
