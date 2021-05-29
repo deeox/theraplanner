@@ -1,6 +1,6 @@
 exports.getUserDashboard = (req, res) => {
     res.locals.user_dash = true;
-    res.render('user_dashboard', {
+    res.render('userDashboard', {
       title: 'Your Dash',
       isAuthenticated: req.oidc.isAuthenticated()
     });
