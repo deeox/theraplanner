@@ -14,9 +14,14 @@ const { requiresAuth } = require('express-openid-connect');
 dotenv.config({ path: '.env' });
 // dotenv.load();
 
+
+/*
+ *  Controllers
+ */
 const homeController = require('./controllers/home');
-const userDashboardController = require('./controllers/user_dashboard');
+const userDashboardController = require('./controllers/userDashboard');
 const clientManagerController = require('./controllers/clientManager');
+const clientDashboardController = require('./controllers/clientDashboard');
 
 
 
@@ -66,8 +71,9 @@ app.use(function (req, res, next) {
 app.get('/', homeController.index);
 app.get('/dashboard', requiresAuth(), userDashboardController.getUserDashboard);
 app.get('/clientManager', requiresAuth(), clientManagerController.getclientManager);
-app.get('/newItem', requiresAuth(),userDashboardController.getnewItem);
-app.get('/newClient', requiresAuth(),clientManagerController.getnewClient);
+app.get('/newItem', requiresAuth(), userDashboardController.getnewItem);
+app.get('/newClient', requiresAuth(), clientManagerController.getnewClient);
+app.get('/clientDashboard', requiresAuth(), clientDashboardController.getClientDashboard);
 // app.get('/dashboard/meeting/{}{}', homeController.index);
 
 
