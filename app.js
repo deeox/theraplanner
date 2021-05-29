@@ -65,9 +65,9 @@ app.use(function (req, res, next) {
 
 app.get('/', homeController.index);
 app.get('/dashboard', requiresAuth(), userDashboardController.getUserDashboard);
-app.get('/clientManager', clientManagerController.getclientManager);
-app.get('/newItem', userDashboardController.getnewItem);
-app.get('/newClient', clientManagerController.getnewClient);
+app.get('/clientManager', requiresAuth(), clientManagerController.getclientManager);
+app.get('/newItem', requiresAuth(),userDashboardController.getnewItem);
+app.get('/newClient', requiresAuth(),clientManagerController.getnewClient);
 // app.get('/dashboard/meeting/{}{}', homeController.index);
 
 
