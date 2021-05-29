@@ -13,3 +13,9 @@ exports.getnewClient = (req, res) => {
         isAuthenticated: req.oidc.isAuthenticated()
     });
 };
+
+exports.postnewClient = (req, res) => {
+    console.log(req.body);
+    // res.end(JSON.stringify(req.body));
+    res.redirect("/clientManager");
+};

@@ -6,36 +6,41 @@ block content
     h3 Schedule New Meeting 
     hr
 
-    form
+    form#newItem(action='/newItem' method='POST')
       
-      .form-outline.mb-4.h5
-        label.form-label(for='name') Name
-        input#name.form-control(type='text')
+      .row.h5
+        .col
+            .form-outline
+                label.form-label(for='name') Name
+                input#name.form-control(type='text' name="clientName")
+        .col
+            .form-outline
+                label.form-label(for='email') Email address  
+                input#email.form-control(type='Email' name="clientEmail")
+      
         
       // Start Time
-      .row.mb-4.h5
+      .row.h5
         .col
             .form-outline
                 label.form-label(for='date') Date
-                input#date.form-control(type="datetime-local"
-                name="meeting-time" value="2018-06-12T19:30"
-                min="2018-06-07T00:00" max="2018-06-14T00:00")
+                input#date.form-control(type="datetime-local" name="when")
         .col
             .form-outline
                 label.form-label(for='duration') Duration
-                select#duration.form-control
-                    option(selected='' value='30') 30 mins
-                    option(value='45') 45 mins
-                    option(value='60') 60 mins
-            
-      // Message input
-      .form-outline.mb-4.h5
-        label.form-label(for='message') Message
-        textarea#message.form-control(rows='4')
+                select#duration.form-control(form='newItem' name='duration')
+                    option(selected='' disabled) In minutes...
+                    option(value=45) 45 mins
+                    option(value=60) 60 mins
+                    option(value=90) 90 mins
+      
+      .row.h5
+        // Message input
+        .form-outline
+          label.form-label(for='to_do') To-Do
+          textarea#to_do.form-control(rows='4' name="toDo")
 
-      .form-outline.mb-4.h5
-            label.form-label(for='emaila') Email address  
-            input#emaila.form-control(type='Email')
+      
         
       // Submit button
       button.btn.btn-primary.btn-block.mb-4(type='submit') Submit

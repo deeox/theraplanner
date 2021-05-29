@@ -22,6 +22,7 @@ const homeController = require('./controllers/home');
 const userDashboardController = require('./controllers/userDashboard');
 const clientManagerController = require('./controllers/clientManager');
 const clientDashboardController = require('./controllers/clientDashboard');
+const clientNotesController = require('./controllers/clientNotes');
 
 
 
@@ -54,6 +55,9 @@ app.use('/js/lib', express.static(path.join(__dirname, 'node_modules/jquery/dist
 app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), { maxAge: 31557600000 }));
 
 app.use(express.json());
+app.use(express.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 const config = {
   authRequired: false,
@@ -72,9 +76,12 @@ app.get('/', homeController.index);
 app.get('/dashboard', requiresAuth(), userDashboardController.getUserDashboard);
 app.get('/clientManager', requiresAuth(), clientManagerController.getclientManager);
 app.get('/newItem', requiresAuth(), userDashboardController.getnewItem);
+app.post('/newItem', requiresAuth(), userDashboardController.postnewItem);
 app.get('/newClient', requiresAuth(), clientManagerController.getnewClient);
+app.post('/newClient', requiresAuth(), clientManagerController.postnewClient);
 app.get('/clientDashboard', requiresAuth(), clientDashboardController.getClientDashboard);
-// app.get('/dashboard/meeting/{}{}', homeController.index);
+app.get('/addNote', requiresAuth(), clientNotesController.getClientNoteTaker);
+app.post('/addNote', requiresAuth(), clientNotesController.postNewNote);
 
 
 app.listen(app.get('port'), () => {
