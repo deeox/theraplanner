@@ -73,15 +73,18 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', homeController.index);
+
 app.get('/dashboard', requiresAuth(), userDashboardController.getUserDashboard);
+app.get('/dashboard/newItem', requiresAuth(), userDashboardController.getnewItem);
+app.post('/dashboard/newItem', requiresAuth(), userDashboardController.postnewItem);
+
 app.get('/clientManager', requiresAuth(), clientManagerController.getclientManager);
-app.get('/newItem', requiresAuth(), userDashboardController.getnewItem);
-app.post('/newItem', requiresAuth(), userDashboardController.postnewItem);
-app.get('/newClient', requiresAuth(), clientManagerController.getnewClient);
-app.post('/newClient', requiresAuth(), clientManagerController.postnewClient);
-app.get('/clientDashboard', requiresAuth(), clientDashboardController.getClientDashboard);
-app.get('/addNote', requiresAuth(), clientNotesController.getClientNoteTaker);
-app.post('/addNote', requiresAuth(), clientNotesController.postNewNote);
+app.get('/clientManager/newClient', requiresAuth(), clientManagerController.getnewClient);
+app.post('/clientManager/newClient', requiresAuth(), clientManagerController.postnewClient);
+
+app.get('/clientDashboard/:clientId', requiresAuth(), clientDashboardController.getClientDashboard);
+app.get('/addNote/:clientId', requiresAuth(), clientNotesController.getClientNoteTaker);
+app.post('/addNote/:clientId', requiresAuth(), clientNotesController.postNewNote);
 
 
 app.listen(app.get('port'), () => {

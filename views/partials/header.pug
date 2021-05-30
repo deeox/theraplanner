@@ -1,14 +1,17 @@
 .navbar.navbar-light.fixed-top.navbar-expand-lg.bg-light
-  .container
-    a.navbar-brand(href='/')
-      i.fas.fa-cube
-      | TheraPlanner
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-      span.sr-only Toggle navigation
-      span.navbar-toggler-icon
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right.ms-auto
-          li.nav-item(class=locals.user_dash ? 'active' : 'd-none')
-            a.nav-link(href='/clientManager') Manage Clients
-          li.nav-item(class=isAuthenticated ? 'active' : 'd-none')
-            a.nav-link(href='/logout') Logout
+    .container
+        a.navbar-brand(href='/')
+            i.fas.fa-cube
+            | TheraPlanner
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.navbar-toggler-icon
+        .collapse.navbar-collapse
+            ul.nav.navbar-nav
+                li.nav-item(class=(title !== 'Your Dashboard') ? 'active' : 'd-none')
+                    a.nav-link(href='/dashboard') Your Dashboard
+                li.nav-item(class=(title !== 'Client Manager') ? 'active' : 'd-none')
+                    a.nav-link(href='/clientManager') Manage Clients
+            ul.nav.navbar-nav.navbar-right.ms-auto
+                li.nav-item(class=isAuthenticated ? 'active' : 'd-none')
+                    a.nav-link(href='/logout') Logout

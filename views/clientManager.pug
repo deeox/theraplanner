@@ -1,14 +1,13 @@
 extends layout
 
-block content
-
-mixin meetingItem(client_name,Age,PhNo)
+mixin client(fname, lname, email, contact, dob)
     a.list-group-item.list-group-item-action-px-2.column.align-items-start.my-2.shadow(href='#')
         .d-flex.w-100.justify-content-between
-            h4.mb-1= client_name
+            h4.mb-2 #{lname}, #{fname}
             .d-flex.w-50.justify-content-between
-                h5 Age: #{Age} 
-                h5  Phone Number: #{PhNo}
+                h5 #{email} 
+                h5 #{contact}
+        h6.mb-1 DOB: #{dob}
 
 
 block content
@@ -19,10 +18,13 @@ block content
             .col
                 h3.mt-2.mb-0.pt-2 Your Existing Clients:
             .col.text-end
-                a.btn.btn-primary.m-2.shadow(href='/newClient', role='button') 
+                a.btn.btn-primary.m-2.shadow(href='/clientManager/newClient', role='button') 
                     i.fas.fa-plus
                     | Add New Client
         hr
         .list-group
-            +meetingItem("Shagun Sood", "23","9480391910")
+            //- +meetingItem("Shagun Sood", "23","9480391910")
+            //- +client("client.first_name", "client.last_name", "client.email", "client.contact_number", "client.birth_date")
+            each client in clientData 
+                +client(client.first_name, client.last_name, client.email, client.contact_number, client.birth_date)
 

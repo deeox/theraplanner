@@ -5,7 +5,7 @@ block content
     h3 Add New Note
     hr
 
-    form#newNote(action='/addNote' method='POST')
+    form#newNote(action='/addNote/'+client_id method='POST')
 
         .row 
             .col-9
@@ -15,15 +15,15 @@ block content
             .col-1
                 .form-outline.mb-4.h5
                     label.form-label(for='date') Year
-                    input#name.form-control(type='text' name='year')
+                    input#name.form-control(type='number' name='year')
             .col-1
                 .form-outline.mb-4.h5
                     label.form-label(for='date') Month
-                    input#name.form-control(type='text' name='month')
+                    input#name.form-control(type='number' name='month')
             .col-1
                 .form-outline.mb-4.h5
                     label.form-label(for='date') Date
-                    input#name.form-control(type='text' name='date')
+                    input#name.form-control(type='number' name='date')
             
         // Message input
         .form-outline.mb-4.h5
