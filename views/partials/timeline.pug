@@ -1,21 +1,25 @@
 mixin addYear(year)
     .single-timeline-area
         .timeline-date.wow.fadeInLeft(data-wow-delay='0.1s' style='visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;')
-            p= year
+            h4= year
         if block 
             .row 
                 block 
         else 
             undefined
 
-mixin addNote(date, summary)
+mixin addNote(year, month, date, title, desc)
     .col-12.col-md-6.col-lg-4
         .single-timeline-content.d-flex.wow.fadeInLeft(data-wow-delay='0.3s' style='visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;')
-            //- .timeline-icon
-            //-     i.fa.fa-address-card(aria-hidden='true')
-            .timeline-text
-                h6= date
-                p= summary
+            .timeline-text.flex-fill 
+                .row
+                    .col-7
+                        h6
+                            b= title
+                    .col-5.text-end
+                        h6 #{year}-#{month}-#{date}
+                .row
+                    p= desc
 
 
 section.timeline_area.section_padding_130
@@ -24,15 +28,13 @@ section.timeline_area.section_padding_130
       .col-12
         // Timeline Area
         .apland-timeline-area
-            +addYear("2021")
-                +addNote("12 Mar", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-                +addNote("12 Mar", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-                +addNote("12 Mar", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-                +addNote("12 Mar", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-            +addYear("2017")
-                +addNote("2021/05/27", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-                +addNote("2021/05/27", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-            +addYear("2005")
-                +addNote("2021/05/27", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
-                +addNote("2021/05/27", "Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
+            if !isNotes
+                br
+                h1 Seems like there are no notes here yet :(
+                h3 Click on Add Session Note to add notes
+            else
+                each year in notes
+                    +addYear(year.year)
+                        each note in year.notes 
+                            +addNote(note.year, note.month, note.date, note.title, note.description)
             

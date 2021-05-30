@@ -2,28 +2,33 @@ extends layout
 
 block content 
 
-	h3 Add New Note
+    h3 Add New Note
     hr
 
-    form
-      
-      .form-outline.mb-4.h5
-        label.form-label(for='name') Name
-        input#name.form-control(type='text')
-        
-      // Start Time
-      .row.mb-4.h5
-        .col
-            .form-outline
-                label.form-label(for='date') Date
-                input#date.form-control(type="datetime-local"
-                name="meeting-time" value="2018-06-12T19:30"
-                min="2018-06-07T00:00" max="2018-06-14T00:00")
+    form#newNote(action='/addNote/'+client_id method='POST')
+
+        .row 
+            .col-9
+                .form-outline.mb-4.h5
+                    label.form-label(for='name') Title
+                    input#name.form-control(type='text' name='title')
+            .col-1
+                .form-outline.mb-4.h5
+                    label.form-label(for='date') Year
+                    input#name.form-control(type='number' name='year')
+            .col-1
+                .form-outline.mb-4.h5
+                    label.form-label(for='date') Month
+                    input#name.form-control(type='number' name='month')
+            .col-1
+                .form-outline.mb-4.h5
+                    label.form-label(for='date') Date
+                    input#name.form-control(type='number' name='date')
             
-      // Message input
-      .form-outline.mb-4.h5
-        label.form-label(for='message') Message
-        textarea#message.form-control(rows='4')
-        
-      // Submit button
-      button.btn.btn-primary.btn-block.mb-4(type='submit') Submit
+        // Message input
+        .form-outline.mb-4.h5
+            label.form-label(for='message') Description
+            textarea#message.form-control(rows='4' name='description')
+
+        // Submit button
+        button.btn.btn-primary.btn-block.mb-4(type='submit') Submit

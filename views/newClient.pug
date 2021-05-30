@@ -5,33 +5,33 @@ block content
     h3 Add New Client Details  
     hr
 
-    form
+    form#newClient(action='/clientManager/newClient' method='POST')
       // Name input
       .row.mb-4
           .col
             .form-outline.h5
               label.form-label(for='fname') First name
-              input#fname.form-control(type='text')
+              input#fname.form-control(type='text' name='firstName')
           .col
             .form-outline.h5
               label.form-label(for='lname') Last name
-              input#lname.form-control(type='text')
+              input#lname.form-control(type='text' name='lastName')
           
         
       // Start Time
       .row.mb-4
         .col
             .form-outline.h5
-                label.form-label(for='age') Age
-                input#age.form-control(type='text')
+                    label.form-label(for='date') Date of Birth
+                    input#date.form-control(type="date" name="birthDate")
         .col
             .form-outline.h5
                 label.form-label(for='contact') Phone No
-                input#contact.form-control(type='text')
+                input#contact.form-control(type='text' name='contactNumber')
       
         .form-outline.mb-4.h5
             label.form-label(for='email') Email address  
-            input#email.form-control(type='email')
+            input#email.form-control(type='email' name='email')
               
         button.btn.btn-primary.btn-block.mb-4(type='submit') Submit
 

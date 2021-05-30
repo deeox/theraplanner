@@ -1,13 +1,13 @@
 extends layout
 
-mixin meetingItem(client_name, start_time, end_time, to_do_latest)
-    a.list-group-item.list-group-item-action.flex-column.align-items-start.my-2.shadow(href='/clientDashboard')
+mixin meetingItem(client_name, meet_time, duration, to_do, client_id)
+    a.list-group-item.list-group-item-action.flex-column.align-items-start.my-2.shadow(href='/clientDashboard/'+client_id)
         .d-flex.w-100.justify-content-between
             h4.mb-1= client_name
-            .d-flex.w-50.justify-content-end
-                h5 
-                    b #{start_time} - #{end_time}
-        h6.mb-1= to_do_latest
+            .d-flex.w-25.justify-content-end
+                h5
+                    b #{meet_time}  -  #{duration} mins
+        h6.mb-1= to_do
 
 
 block content
@@ -19,13 +19,11 @@ block content
             .col
                 h3.mt-2.mb-0.pt-2 Your Schedule Today:
             .col.text-end
-                a.btn.btn-primary.m-2.shadow(href='/newItem', role='button') 
+                a.btn.btn-primary.m-2.shadow(href='/dashboard/newItem', role='button') 
                     i.fas.fa-plus
                     | New Item
         hr
         .list-group
-            +meetingItem("Shagun Sood", "1:00 PM", "1:30 PM", "Need to dig deeper into trauma")
-            +meetingItem("Shagun Sood", "1:00 PM", "1:30 PM", "Need to dig deeper into trauma")
-            +meetingItem("Shagun Sood", "1:00 PM", "1:30 PM", "Need to dig deeper into trauma")
-            +meetingItem("Shagun Sood", "1:00 PM", "1:30 PM", "Need to dig deeper into trauma")
-            +meetingItem("Shagun Sood", "1:00 PM", "1:30 PM", "Need to dig deeper into trauma")
+            each meet in meetData 
+                +meetingItem(meet.client_name, meet.when, meet.duration, meet.to_do, meet.client_id)
+
