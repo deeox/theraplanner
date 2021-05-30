@@ -5,7 +5,7 @@ block content
   section.jumbotron.pt-8
     .container
       h1 TheraPlanner
-      p.lead The planner which will ease your organizing burdens 
+      p.lead All-in-one workspace for mental health professionals
       hr
 
 
@@ -17,4 +17,11 @@ block content
         h4 Hi there! #{locals.user.given_name}
         a.btn.btn-primary.btn-lg.m-2(href='/dashboard', role='button') Go to Dashboard
 
-    img.img-fluid(src='/organise.svg' alt='e')
+    .container.m-4
+      .row 
+        .col
+          blockquote.blockquote.my-4.text-justify
+            p.mb-0
+              | TheraPlanner’s primary feature is providing a story of the client through simple and powerful visualizations. TheraPlanner can also tackle note taking, session scheduling and client management. Through these tools presented in a unified manner the counsellor can recollect notes from previous sessions, identify trends and plan for upcoming sessions better.
+        .col
+          img.img-fluid(src='/undraw_mindfulness_scgo.svg' alt='e')

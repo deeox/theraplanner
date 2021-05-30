@@ -15,15 +15,19 @@ block content
     h1 Welcome back! #{locals.user.name}
     br
     .container
-        .row.mb-0
-            .col
-                h3.mt-2.mb-0.pt-2 Your Schedule Today:
-            .col.text-end
-                a.btn.btn-primary.m-2.shadow(href='/dashboard/newItem', role='button') 
-                    i.fas.fa-plus
-                    | New Item
-        hr
-        .list-group
-            each meet in meetData 
-                +meetingItem(meet.client_name, meet.when, meet.duration, meet.to_do, meet.client_id)
+        .row
+            .col-lg-7
+                .row.mb-0
+                    .col
+                        h3.mt-2.mb-0.pt-2 Your Schedule Today:
+                    .col.text-end
+                        a.btn.btn-primary.m-2.shadow(href='/dashboard/newItem', role='button') 
+                            i.fas.fa-plus
+                            | New Item
+                hr
+                .list-group
+                    each meet in meetData 
+                        +meetingItem(meet.client_name, meet.when, meet.duration, meet.to_do, meet.client_id)
+            .col-lg-5
+                img.img-fluid(src='/undraw_schedule_pnbk.svg' alt='e')
 
