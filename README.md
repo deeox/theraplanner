@@ -2,7 +2,25 @@
 
 ## About
 
-TheraPlanner is an all-in-one workspace for mental health professionals. TheraPlanner’s primary feature is providing a story of the client through simple and powerful visualizations. TheraPlanner can also tackle note taking, session scheduling and client management. Through these tools presented in a unified manner the counsellor can recollect notes from previous sessions, identify trends and plan for upcoming sessions better.
+### All-in-one workspace for mental health professionals
+
+### Features: 
+TheraPlanner’s primary feature is providing a story of the client through simple and powerful visualizations. TheraPlanner can also tackle note taking, session scheduling and client management. Through these tools presented in a unified manner the counsellor can recollect notes from previous sessions, identify trends and plan for upcoming sessions better.
+
+### Inspiration: 
+From personal experience we identified a pattern among therapy sessions that, due to a large number of clientele, the counsellor finds it laborious to keep a track of mental health records of their clients leading to repetition of the same themes in multiple sessions. After speaking to the in-house counsellor at MPower in our college, we identified that the issue arises from the counsellor finding it strenuous to revise through notes from all the previous sessions. As the session notes are exhaustive and bulky, we decided to organize the notes in an intuitive format.
+
+### Future Scope: 
+We are planning to introduce habit tracking to keep accountability and exporting entire session notes in the case of a change in counsellor.
+
+### Team Name: 
+RajGunda
+
+### Team Members: 
+- Deepak Divya Tejaswi 
+- Aneesh Garg 
+- Shagun Sood 
+- Praveen Karra
 
 ## Setup
 
