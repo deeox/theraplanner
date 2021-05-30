@@ -8,9 +8,9 @@
             span.navbar-toggler-icon
         .collapse.navbar-collapse
             ul.nav.navbar-nav
-                li.nav-item(class=(title !== 'Your Dashboard') ? 'active' : 'd-none')
+                li.nav-item(class=(title !== 'Your Dashboard') && (title !== 'Home') ? 'active' : 'd-none')
                     a.nav-link(href='/dashboard') Your Dashboard
-                li.nav-item(class=(title !== 'Client Manager') ? 'active' : 'd-none')
+                li.nav-item(class=(title !== 'Client Manager') && (title !== 'Home') ? 'active' : 'd-none')
                     a.nav-link(href='/clientManager') Manage Clients
             ul.nav.navbar-nav.navbar-right.ms-auto
                 li.nav-item(class=isAuthenticated ? 'active' : 'd-none')
